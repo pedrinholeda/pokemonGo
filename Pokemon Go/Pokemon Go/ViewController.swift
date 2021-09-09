@@ -36,11 +36,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //pokemons
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
             if let cordenadas = self.locationManeger.location?.coordinate {
-                let notation = MKPointAnnotation()
-                notation.coordinate = cordenadas
                 
-                let latAleatoria = (Double(arc4random_uniform(500)) - 250) / 100000.0
-                let longAleatoria = (Double(arc4random_uniform(500)) - 250) / 100000.0
+                let totalPokemons = UInt32(self.pokemons.count)
+                let indicePokemonAleatorio = arc4random_uniform(totalPokemons)
+                
+                let pokemon = self.pokemons[Int(indicePokemonAleatorio)]
+                
+                let notation = PokemonNotation(coordenadas: cordenadas,pokemon: pokemon)
+                
+                let latAleatoria = (Double(arc4random_uniform(400)) - 250) / 100000.0
+                let longAleatoria = (Double(arc4random_uniform(400)) - 250) / 100000.0
                 
                 notation.coordinate.latitude += latAleatoria
                 notation.coordinate.longitude += longAleatoria
@@ -102,13 +107,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let notationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+      
         
         notationView.image = UIImage(named: "pikachu-2")
         
         if annotation is MKUserLocation {
             notationView.image = UIImage(named: "player")
         }else{
-            notationView.image = UIImage(named: "pikachu-2")
+            let pokemon = (annotation as! PokemonNotation).pokemon
+            notationView.image = UIImage(named: pokemon.nomeImagem!)
         }
         
         var frame = notationView.frame

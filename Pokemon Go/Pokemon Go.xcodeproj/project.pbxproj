@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E40180EA26EA986400D977F2 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40180E926EA986400D977F2 /* CoreDataPokemon.swift */; };
+		E40180EC26EAA1F700D977F2 /* PokemonNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40180EB26EAA1F700D977F2 /* PokemonNotation.swift */; };
 		E46E692E26E9451700E2F297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E692D26E9451700E2F297 /* AppDelegate.swift */; };
 		E46E693026E9451700E2F297 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E692F26E9451700E2F297 /* SceneDelegate.swift */; };
 		E46E693226E9451700E2F297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46E693126E9451700E2F297 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		E40180E926EA986400D977F2 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
+		E40180EB26EAA1F700D977F2 /* PokemonNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNotation.swift; sourceTree = "<group>"; };
 		E46E692A26E9451700E2F297 /* Pokemon Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E692D26E9451700E2F297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E46E692F26E9451700E2F297 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				E46E692D26E9451700E2F297 /* AppDelegate.swift */,
 				E46E692F26E9451700E2F297 /* SceneDelegate.swift */,
 				E46E693126E9451700E2F297 /* ViewController.swift */,
+				E40180EB26EAA1F700D977F2 /* PokemonNotation.swift */,
 				E46E693326E9451700E2F297 /* Main.storyboard */,
 				E46E693926E9451800E2F297 /* Assets.xcassets */,
 				E46E693B26E9451800E2F297 /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 				E46E693226E9451700E2F297 /* ViewController.swift in Sources */,
 				E46E693826E9451700E2F297 /* Pokemon_Go.xcdatamodeld in Sources */,
 				E46E692E26E9451700E2F297 /* AppDelegate.swift in Sources */,
+				E40180EC26EAA1F700D977F2 /* PokemonNotation.swift in Sources */,
 				E46E693026E9451700E2F297 /* SceneDelegate.swift in Sources */,
 				E40180EA26EA986400D977F2 /* CoreDataPokemon.swift in Sources */,
 			);
