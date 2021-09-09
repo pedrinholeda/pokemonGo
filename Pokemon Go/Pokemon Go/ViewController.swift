@@ -9,10 +9,12 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
     // MARK: Properties
     var locationManeger = CLLocationManager()
     var count = 0
+    var coreDataPokemon: CoreDataPokemon!
+    var pokemons: [Pokemon] = []
     
     // MARK: Outlets
     @IBOutlet weak var map: MKMapView!
@@ -27,6 +29,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManeger.delegate = self
         locationManeger.requestWhenInUseAuthorization()
         locationManeger.startUpdatingLocation()
+        
+        self.coreDataPokemon = CoreDataPokemon()
+        self.pokemons = self.coreDataPokemon.recoverAllPokemons()
         
         //pokemons
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
@@ -55,6 +60,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     
     // MARK: Methods
+    
     func center() {
         if let coordinate = locationManeger.location?.coordinate {
             let region = MKCoordinateRegion(center: coordinate,
@@ -76,8 +82,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .authorizedWhenInUse && status != .notDetermined {
             let alertController = UIAlertController(title: "Permissão de Autorização",
-                                                   message: "Para que você possa caçar pokemons, precisamos da sua localização",
-                                                   preferredStyle: .alert)
+                                                    message: "Para que você possa caçar pokemons, precisamos da sua localização",
+                                                    preferredStyle: .alert)
             let configurationsAction = UIAlertAction(title: "Abrir configurações", style: .default, handler: {
                 (configurationAlert) in
                 if let configuration = NSURL(string: UIApplication.openSettingsURLString){
@@ -92,9 +98,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
             present(alertController, animated: true, completion: nil)
         }
-        
-        
     }
-
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let notationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        notationView.image = UIImage(named: "pikachu-2")
+        
+        if annotation is MKUserLocation {
+            notationView.image = UIImage(named: "player")
+        }else{
+            notationView.image = UIImage(named: "pikachu-2")
+        }
+        
+        var frame = notationView.frame
+        frame.size.height = 40
+        frame.size.width = 40
+        
+        notationView.frame = frame
+        
+        return notationView
+    }
 }
 
