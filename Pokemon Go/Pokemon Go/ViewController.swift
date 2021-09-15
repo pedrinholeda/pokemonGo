@@ -63,9 +63,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func openPokedex(_ sender: Any) {
     }
     
-    
     // MARK: Methods
-    
     func center() {
         if let coordinate = locationManeger.location?.coordinate {
             let region = MKCoordinateRegion(center: coordinate,
