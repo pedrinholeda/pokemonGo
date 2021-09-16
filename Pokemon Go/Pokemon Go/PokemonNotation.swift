@@ -13,19 +13,10 @@ class PokemonNotation: NSObject, MKAnnotation {
     // MARK: Properties
     var coordinate: CLLocationCoordinate2D
     var pokemon: Pokemon
-    
-    // MARK: Outlets
-    
+
     // MARK: Initialization
     init(coordenadas: CLLocationCoordinate2D, pokemon: Pokemon) {
         self.coordinate = coordenadas
         self.pokemon = pokemon
     }
-    
-    // MARK: Overrides
-    
-    // MARK: Actions
-    
-    // MARK: Methods
-
 }
